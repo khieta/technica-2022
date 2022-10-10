@@ -18,7 +18,7 @@ But it takes some skill to encode a solution amenable to SMT -- the mentors will
 Target Outcomes:  
 
 * Learn about automated reasoning technology and how to use it.
-* Try out computer science research!
+* Try designing a computer science research project!
 
 ## Table of Contents
 
@@ -169,23 +169,23 @@ The program in [sudoku.py](./sudoku.py) finds the solution for the puzzle shown 
 Develop a class-to-room scheduler for UMD:
 
 * Input: List of classes, with sizes
-* Input: Available rooms, with available time slots and sizes
+* Input: Available rooms, with sizes
 * Output: Assignment of classes to rooms
 
-We've provided a basic solution in **TODO**, now it's up to you to turn this into a research project!
-Here are a few ideas for directions you might explore:
+We've provided a basic solution in [basic_scheduler.py](./basic_scheduler.py), now it's up to you to turn this into a research project!
+Here are some questions you might try to answer:
 
-* Add new features to our solution. What do you think would be most useful?
-What do you think would be most useful to add?
-  * Teachers may have a preference for time of day.
-  * Teachers prefer classrooms close to their offices.
-  * Some classes are Tu/Th, and some are Mo/We/Fr.
-  * Small classes should be in small classrooms (don't put a 15 person seminar in a lecture hall).
-  * Different classes have different durations.
-  * Some classes shouldn't overlap (e.g., classes that many people take together).
+* Is the current solution good? Does it give a useful schedule? Why or why not? 
+* How can you modify the solution to support the case where:
+  * Classes and rooms are unavailable for certain time slots
+  * Rooms should be close to the class' teacher's office
+  * Some classes are Tu/Th, and some are Mo/We/Fr
+  * Small classes should be in small classrooms (don't put a 15 person seminar in a lecture hall)
+  * Different classes have different durations
+  * Some classes can't overlap
+  * ...
 
-* How do you think we should evaluate the solution?
+* How can you empirically evaluate your solution? A couple ideas:
 
-  * Try implementing the scheduler without an SMT solver. How does your solution look different? Was it harder/easier? How does it compare in terms of performance?
-  * Try a different type of solver (e.g., ILP), how does your solution look different?
-  * Try your solution on larger inputs -- does it scale?
+  * Try implementing the scheduler without an SMT solver. How does your solution look different? Was it harder/easier to write? How does it compare in terms of performance?
+  * Try your solution on inputs of varying sizes -- how does performance scale with problem size?
