@@ -186,7 +186,7 @@ Develop a class-to-room scheduler for UMD:
 * Input: Available rooms, with sizes
 * Output: Assignment of classes to rooms
 
-We've provided a basic solution in [basic_scheduler.py](./basic_scheduler.py), now it's up to you to turn this into a research project!
+We've provided a basic solution in [basic-scheduler.py](./basic-scheduler.py), now it's up to you to turn this into a research project!
 Here are some questions you might try to answer:
 
 * Is the current solution good? Does it give a useful schedule? Why or why not? 
