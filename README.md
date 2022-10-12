@@ -138,6 +138,19 @@ Next time you're working on a puzzle, ask yourself whether it could be solved us
 
 (Solutions from <https://ericpony.github.io/z3py-tutorial/guide-examples.htm>)
 
+#### Rabbits and Chickens
+Uncle Henry has 48 rabbits and chickes. He knows his rabbits and checkis have 108 legs, but do not know the exact number of rabbits and chickens? Can you help him? How many rabbits and chickes does Uncle Henry have?
+
+```python
+# Create 2 integer variables
+rabbit, chicken = Ints('rabbit chicken')
+s = Solver()
+s.add(rabbit + chicken == 48) # 48 animals
+s.add(4 * rabbit + 2 * chicken == 108) # 108 legs
+s.check() # solve the constraints
+s.model() # get the solution
+```
+
 #### Cats and Dogs
 
 Say that you want to spend exactly 100 dollars to buy exactly 100 animals. Dogs cost 15 dollars, cats cost 1 dollar, and mice cost 25 cents each. You have to buy at least one of each. How many of each should you buy?
