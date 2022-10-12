@@ -27,6 +27,7 @@ Target Outcomes:
   * [Intro to SAT](#intro-to-sat)
   * [Solving Puzzles with SMT](#solving-puzzles-with-smt)
     * [Cats and Dogs](#cats-and-dogs)
+    * [Rabbits and Chickens](#rabbits-and-chickens)
     * [Sudoku](#sudoku)
 * [Project: An Automated Assistant for Course Management](#project-an-automated-assistant-for-course-management)
 
@@ -139,7 +140,7 @@ Next time you're working on a puzzle, ask yourself whether it could be solved us
 (Solutions from <https://ericpony.github.io/z3py-tutorial/guide-examples.htm>)
 
 #### Rabbits and Chickens
-Uncle Henry has 48 rabbits and chickes. He knows his rabbits and checkis have 108 legs, but do not know the exact number of rabbits and chickens? Can you help him? How many rabbits and chickes does Uncle Henry have?
+Uncle Henry has 48 rabbits and chickes. He knows his rabbits and checkis have 108 legs, but does not know the exact number of rabbits and chickens? Can you help him? How many rabbits and chickes does Uncle Henry have?
 
 ```python
 # Create 2 integer variables
