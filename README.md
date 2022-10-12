@@ -26,8 +26,8 @@ Target Outcomes:
 * [Background Reading](#background-reading)
   * [Intro to SAT](#intro-to-sat)
   * [Solving Puzzles with SMT](#solving-puzzles-with-smt)
-    * [Cats and Dogs](#cats-and-dogs)
     * [Rabbits and Chickens](#rabbits-and-chickens)
+    * [Cats and Dogs](#cats-and-dogs)
     * [Sudoku](#sudoku)
 * [Project: An Automated Assistant for Course Management](#project-an-automated-assistant-for-course-management)
 
