@@ -36,6 +36,7 @@ If you don't have this background, then please pair up wth someone in your group
   * [Review of Logical Operators](#review-of-logical-operators)
   * [SAT & SMT](#sat--smt)
   * [Solving Puzzles with SMT](#solving-puzzles-with-smt)
+    * [Rabbits and Chickens](#rabbits-and-chickens)
     * [Cats and Dogs](#cats-and-dogs)
     * [Sudoku](#sudoku)
   * [Additional Resources](#additional-resources)
@@ -188,8 +189,22 @@ solve(3 * x - 2 * y == 1, y - x == 1)
 ### Solving Puzzles with SMT
 
 SMT solvers are useful for more than finding solutions to a random set of equations -- you just have to know how to encode your problem in a form that the SMT solver understands.
-Here are two examples of puzzles that an SMT solver can solve.
+Here are three examples of puzzles that an SMT solver can solve.
 Next time you're working on a puzzle, ask yourself whether it could be solved using SMT.
+
+#### Rabbits and Chickens
+
+Uncle Henry has 48 rabbits and chickes. He knows his rabbits and chickens have 108 legs, but does not know the exact number of rabbits and chickens. Can you help him? How many rabbits and chickens does Uncle Henry have?
+
+```python
+# Create 2 integer variables
+rabbit, chicken = Ints('rabbit chicken')
+s = Solver()
+s.add(rabbit + chicken == 48) # 48 animals
+s.add(4 * rabbit + 2 * chicken == 108) # 108 legs
+s.check() # solve the constraints
+s.model() # get the solution
+```
 
 #### Cats and Dogs
 
@@ -254,4 +269,3 @@ Here are some questions you might try to answer:
 * How can you empirically evaluate your solution? A couple ideas:
   * How would you implement the scheduler without an SMT solver? Would it be harder/easier to write? How would it compare in terms of performance?
   * Try your solution on inputs of varying sizes -- how does performance scale with problem size?
-  
