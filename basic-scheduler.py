@@ -24,10 +24,9 @@ class Class:
         self.size = size
 
 '''
-Room object. Stores (at least) room name, size, and available time slots.
-We assume that all available time slots are 1hr.
+Room object. Stores (at least) room name and size.
 
-e.g., Room("X", 45, [1, 2, 3, 5])
+e.g., Room("X", 45)
 '''
 class Room:
     def __init__(self, name, size):
@@ -51,30 +50,41 @@ def schedule(classes, rooms):
     # Create three variables for every class.
     # The first variable describes the (index of the) assigned room, the second
     # describes the time slot, and the third describes the size of the assigned room.
-    vars = [ [ Int("%s_room" % name), Int("%s_time" % name), Int("%s_size" % name) ] 
-            for name in class_names ]
+    vars = []
+    for c in classes:
+        c_vars = [ Int("%s_room" % c.name), Int("%s_time" % c.name), Int("%s_size" % c.name) ] 
+        vars.append(c_vars)
 
     # Every class must be assigned a valid room
     for i in range(len(classes)):
-        s.add(And(0 <= vars[i][0], vars[i][0] < len(rooms)))
+        room = vars[i][0]
+        s.add(And(0 <= room, room < len(rooms)))
 
     # Every class must be assigned a valid time slot
     for i in range(len(classes)):
-        s.add(And(0 <= vars[i][1], vars[i][1] < TIME_SLOTS))
+        time = vars[i][1]
+        s.add(And(0 <= time, time < TIME_SLOTS))
 
     # The assigned room determines the assigned room size
     for i in range(len(classes)):
         for j in range(len(rooms)):
-            s.add(Implies(vars[i][0] == j, vars[i][2] == rooms[j].size))
+            room = vars[i][0]
+            size = vars[i][2]
+            s.add(Implies(room == j, size == rooms[j].size))
 
     # No two classes can be assigned to the same room during the same time slot
     for i in range(len(classes)):
         for j in range(i+1, len(classes)):
-            s.add(Not(And(vars[i][0] == vars[j][0], vars[i][1] == vars[j][1])))
+            room_i = vars[i][0]
+            room_j = vars[j][0]
+            time_i = vars[i][1]
+            time_j = vars[j][1]
+            s.add(Not(And(room_i == room_j, time_i == time_j)))
     
     # The size of the class must be at most the capacity of the room
     for i in range(len(classes)):
-        s.add(class_sizes[i] <= vars[i][2])
+        size = vars[i][2]
+        s.add(class_sizes[i] <= size)
 
     # Check if a solution exists
     if s.check() == unsat:
