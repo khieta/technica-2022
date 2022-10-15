@@ -194,7 +194,7 @@ Next time you're working on a puzzle, ask yourself whether it could be solved us
 
 #### Rabbits and Chickens
 
-Uncle Henry has 48 rabbits and chickes. He knows his rabbits and chickens have 108 legs, but does not know the exact number of rabbits and chickens. Can you help him? How many rabbits and chickens does Uncle Henry have?
+Uncle Henry has 48 rabbits and chickens. He knows his rabbits and chickens have 108 legs, but does not know the exact number of rabbits and chickens. Can you help him? How many rabbits and chickens does Uncle Henry have?
 
 ```python
 # Create 2 integer variables
