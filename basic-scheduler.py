@@ -52,7 +52,7 @@ def schedule(classes, rooms):
     # describes the time slot, and the third describes the size of the assigned room.
     vars = []
     for c in classes:
-        c_vars = [ Int("%s_room" % c.name), Int("%s_time" % c.name), Int("%s_size" % c.name) ] 
+        c_vars = [ Int(c.name + "_room"), Int("%s_time" % c.name), Int("%s_size" % c.name) ] 
         vars.append(c_vars)
 
     # Every class must be assigned a valid room
@@ -85,6 +85,8 @@ def schedule(classes, rooms):
     for i in range(len(classes)):
         size = vars[i][2]
         s.add(class_sizes[i] <= size)
+        # Example addition: the class should not be too small for the room
+        # s.add(size - class_sizes[i] <= 15)
 
     # Check if a solution exists
     if s.check() == unsat:

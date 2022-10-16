@@ -39,6 +39,7 @@ If you don't have this background, then please pair up wth someone in your group
     * [Rabbits and Chickens](#rabbits-and-chickens)
     * [Cats and Dogs](#cats-and-dogs)
     * [Sudoku](#sudoku)
+  * [Proving Theorems with SMT](#proving-theorems-with-smt)
   * [Additional Resources](#additional-resources)
 * [Project: An Automated Assistant for Course Management](#project-an-automated-assistant-for-course-management)
 
@@ -234,6 +235,22 @@ solve(dog >= 1,                   # at least one dog
 The program in [sudoku.py](./sudoku.py) finds the solution for the puzzle shown below. You can run it with `python3 sudoku.py`.
 
 ![sudoku example](https://ericpony.github.io/z3py-tutorial/examples/sudoku.png)
+
+### Proving Theorems with SMT
+
+Often, SMT solvers are not used to find a solution, but to *prove that no solution exists*.
+For instance, say that we want to prove the mathematical fact `y > 0 ==> x + y > x`.
+To do this, we can ask the SMT solver if it ever the case that this is *not* true.
+
+```python
+x, y = Ints('x y')
+solve(Not(Implies(y > 0, x + y > x)))
+
+# Output: no solution
+```
+
+The output here says that it is never not the case that `y > 0 ==> x + y > x` (a double negative).
+In other words: this formula is true for any choice of `x` and `y`!
 
 ### Additional Resources
 
